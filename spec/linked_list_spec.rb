@@ -36,7 +36,8 @@ RSpec.describe LinkedList do
   end
 
   describe '#to_string' do
-    it 'has a string' do
+    it 'has a string after adding one node' do
+      expect(@list.to_string).to eq('')
       @list.append('doop')
       expect(@list.to_string).to eq('doop')
     end

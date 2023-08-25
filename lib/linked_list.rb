@@ -1,5 +1,5 @@
 class LinkedList
-  attr_reader :head
+  attr_reader :head, :data
   # Linked list has three types of state
   # Head of the list, data of each node, next node of each node
   def initialize
@@ -24,6 +24,11 @@ class LinkedList
   end
 
   def to_string
-    @data
+    linked_list_string = ''
+    if @head == nil
+      linked_list_string
+    else
+      linked_list_string << @head.data
+    end
   end
 end
