@@ -4,10 +4,9 @@ RSpec.describe Node do
   before(:each) do
     @node = Node.new('plop')
   end
-  
+
   describe '#initialize' do
     it 'Node class exists' do
-
       expect(@node).to be_instance_of(Node)
     end
 
