@@ -14,4 +14,12 @@ class LinkedList
     else
     end
   end
+
+  def count
+    if @head == nil
+      count = 0
+    else 
+      count = 1
+    end
+  end
 end

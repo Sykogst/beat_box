@@ -17,8 +17,9 @@ RSpec.describe LinkedList do
   end
 
   describe '#append' do
-    it 'append one thing' do
+    it 'append one thing with data ' do
       @list.append('doop')
+      expect(@list).to be_instance_of(LinkedList)
       expect(@list.head.data).to eq('doop')
       expect(@list.head.next_node).to be_nil
     end
@@ -26,10 +27,10 @@ RSpec.describe LinkedList do
     # end
   end
 
-  # describe '#count' do
-  #   it 'has a count' do
-  #     @list.count.append('doop')
-  #     expect(@list.count)
-  #   end
+  describe '#count' do
+    it 'has a count' do
+      @list.append('doop')
+      expect(@list.count).to eq(1)
+    end
   end
 end
