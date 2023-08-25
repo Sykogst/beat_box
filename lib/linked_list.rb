@@ -7,4 +7,11 @@ class LinkedList
     @next_node
     @head = nil
   end
+
+  def append(data)
+    if @head == nil
+      @head = Node.new(data)
+    else
+    end
+  end
 end
