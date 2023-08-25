@@ -1,5 +1,5 @@
 class Node
-  def initialize(node_data)
+  def initialize(data)
 
   end
 end
