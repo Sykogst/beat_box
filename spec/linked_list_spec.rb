@@ -29,8 +29,16 @@ RSpec.describe LinkedList do
 
   describe '#count' do
     it 'has a count' do
+      expect(@list.count).to eq(0)
       @list.append('doop')
       expect(@list.count).to eq(1)
+    end
+  end
+
+  describe '#to_string' do
+    it 'has a string' do
+      @list.append('doop')
+      expect(@list.to_string).to eq('doop')
     end
   end
 end
