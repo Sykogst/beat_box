@@ -17,14 +17,19 @@ RSpec.describe LinkedList do
   end
 
   describe '#append' do
-    it 'append one thing with data ' do
+    it 'append one thing with data, assigns node as head' do
       @list.append('doop')
       expect(@list).to be_instance_of(LinkedList)
       expect(@list.head.data).to eq('doop')
       expect(@list.head.next_node).to be_nil
     end
-    # it 'appends multiple things' do
-    # end
+
+    xit 'appends multiple things' do
+      # Makes node head, points to nothing
+      @list.append('doop')
+      @list.append('deep')
+      expect(@list).to eq(1)
+    end
   end
 
   describe '#count' do
