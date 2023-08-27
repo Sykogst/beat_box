@@ -128,4 +128,14 @@ RSpec.describe LinkedList do
       expect(@list.find(2,3)).to eq('zap')
     end
   end
+
+  describe '#includes?' do
+    it 'has a node value included or not' do
+      @list.append('deep')
+      @list.append('woo')
+      @list.append('zap')
+      expect(@list.includes('deep')).to be true
+      expect(@list.includes('dep')).to be false
+    end
+  end
 end
