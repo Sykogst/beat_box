@@ -74,13 +74,26 @@ class LinkedList
   def insert(index_node, new_data)
     new_node = Node.new(new_data)
     # Adds in node if nothing exists, makes it the head
-    @head =  new_node if @head == nil
+    if @head == nil
+      @head =  new_node 
     # Given index_node 0, makes it the new head
-    prepend(new_data) if index_node == 0
-    # loop to desired node by given index
-    
-
-
-    
+    elsif index_node == 0
+      prepend(new_data) 
+    elsif index_node < count && index_node > 0
+      # Define some 'starting' positions
+      insertion_location = index_node - 1
+      current_node = @head
+      start_nodes = @head
+      # Loop to desired node by given index
+      insertion_location.times { start_nodes = current_node.next_node }
+      end_nodes = start_nodes.next_node
+      # Start nodes point to new node
+      start_nodes.next_node = new_node
+      # New Node points to end nodes
+      new_node.next_node = end_nodes
+    else
+      append(new_data)
+    end
+        
   end
 end
