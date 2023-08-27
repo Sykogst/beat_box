@@ -1,10 +1,12 @@
 class LinkedList
-  attr_reader :head
+  attr_reader :head, :new_node
   # Linked list has three types of state
   # Head of the list, data of each node, next node of each node
   def initialize
     @head = nil
   end
+
+  # Need a way to scan through nodes
 
   def append(data)
     new_node = Node.new(data)
@@ -12,10 +14,14 @@ class LinkedList
     if @head == nil
       @head = new_node
     else
+      current_node = @head
       # Tail node has a next_node value of nil
+      while current_node.next_node != nil
         # Increment to next node
+        current_node = current_node.next_node
+      end
       # Add new node to end
-
+      current_node.next_node = new_node
     end
   end
 
