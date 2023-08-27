@@ -68,7 +68,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  describe '#prepend' to
+  describe '#prepend' do
     it 'adds node to beginning of list, head is new node' do
       @list.append('boop')
       @list.prepend('kee')

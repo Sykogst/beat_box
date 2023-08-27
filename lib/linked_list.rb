@@ -8,8 +8,8 @@ class LinkedList
 
   # Need a way to scan through nodes
 
-  def append(data)
-    new_node = Node.new(data)
+  def append(new_data)
+    new_node = Node.new(new_data)
     # If no head exists, new_node is assigned as the head
     if @head == nil
       @head = new_node
@@ -56,5 +56,18 @@ class LinkedList
       node_data << current_node.data
     end
     node_data.join(' ')
+  end
+
+  def prepend(new_data)
+    new_node = Node.new(new_data)
+    if @head!= nil
+      # Make pointer of new node the current head
+      new_node.next_node = @head
+      # Assign new node as head
+      @head = new_node
+    # No head at all, prepend also makes new node head
+    else
+      @head = new_node
+    end
   end
 end
