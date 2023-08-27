@@ -131,11 +131,12 @@ RSpec.describe LinkedList do
 
   describe '#includes?' do
     it 'has a node value included or not' do
+      expect(@list.includes?('deep')).to be false
       @list.append('deep')
       @list.append('woo')
       @list.append('zap')
-      expect(@list.includes('deep')).to be true
-      expect(@list.includes('dep')).to be false
+      expect(@list.includes?('deep')).to be true
+      expect(@list.includes?('dep')).to be false
     end
   end
 end

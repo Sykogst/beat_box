@@ -106,7 +106,7 @@ class LinkedList
       if @head == nil || start_index > count - 1 
         nil
       else
-        found_nodes = []
+        node_data = []
         current_node = @head
         # Iterate to get start node
         start_index.times { current_node = current_node.next_node }
@@ -116,17 +116,24 @@ class LinkedList
           start_index == 0 ? (node_end = number_nodes - start_index - 1) : (node_end = number_nodes - start_index)
           # Iterate to push nodes intro array
           node_end.times do
-            found_nodes << current_node.data
+            node_data << current_node.data
             current_node = current_node.next_node
           end
         else
           number_nodes.times do
-            found_nodes << current_node.data
+            node_data << current_node.data
             current_node = current_node.next_node
           end
         end
-        found_nodes.join(' ')
+        node_data.join(' ')
       end
     end
   
+  def includes?(search_data)
+    current_node = @head
+    found = false
+    # Makes array of the string form of list, iterates and updates found depening
+    to_string.split(' ').each { |node| found = true if node == search_data}
+    found
+  end
 end
