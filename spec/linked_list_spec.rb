@@ -119,5 +119,13 @@ RSpec.describe LinkedList do
       @list.append('zap')
       expect(@list.find(3,2)).to be_nil
     end
+
+    it 'only returns nodes up until the last node' do
+      @list.append('deep')
+      @list.append('woo')
+      @list.append('zap')
+      expect(@list.find(0,4)).to eq('deep woo zap')
+      expect(@list.find(2,3)).to eq('zap')
+    end
   end
 end
