@@ -24,11 +24,11 @@ RSpec.describe LinkedList do
       expect(@list.head.next_node).to be_nil
     end
 
-    xit 'appends multiple things' do
+    it 'appends multiple things' do
       # Makes node head, points to nothing
       @list.append('doop')
-      @list.append('deep')
-      expect(@list).to eq(1)
+      second_node = @list.append('deep')
+      expect(@list.head.next_node).to eq(second_node)
     end
   end
 
