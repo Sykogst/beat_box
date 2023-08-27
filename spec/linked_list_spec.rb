@@ -83,12 +83,15 @@ RSpec.describe LinkedList do
 
   describe '#insert' do
     it 'adds node at after specified location in list' do
-      @list.append('boop')
+      @list.insert(2,'boop')
+      expect(@list.to_string).to eq('boop')
       @list.prepend('kee')
       @list.prepend('wop')
       expect(@list.to_string).to eq('wop kee boop')
       @list.insert(0, 'blip')
       expect(@list.to_string).to eq('blip wop kee boop')
+      @list.insert(1, 'zap')
+      expect(@list.to_string).to eq('blip zap wop kee boop')    
     end
   end
 end
