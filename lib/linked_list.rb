@@ -136,4 +136,22 @@ class LinkedList
     to_string.split(' ').each { |node| found = true if node == search_data}
     found
   end
+
+  def pop
+    # Set required number of iterations, and start points
+    last_index = count - 1
+    before_last = last_index - 1
+    current_node = @head
+    new_tail_node = @head
+    if @head == nil
+      nil
+    else
+      # Iterate to get to last node and one before it
+      last_index.times { current_node = current_node.next_node }
+      before_last.times { new_tail_node = new_tail_node.next_node }
+      # Remove tail node and get string data for what was removed
+      new_tail_node.next_node = nil
+      "#{current_node.data}"
+    end
+  end
 end

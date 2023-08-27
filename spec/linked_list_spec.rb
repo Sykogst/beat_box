@@ -142,6 +142,7 @@ RSpec.describe LinkedList do
 
   describe '#pop' do
     it "returns node data in last element and removes node" do
+      expect(@list.pop).to be_nil
       @list.append('deep')
       @list.append('woo')
       @list.append('zap')
