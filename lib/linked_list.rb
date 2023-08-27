@@ -99,6 +99,16 @@ class LinkedList
       new_node.next_node = end_nodes
     # Any given indexes larger than size of list, appends
     end
-        
+    
+    def find(start_index, number_nodes)
+      found_nodes = []
+      current_node = @head
+      start_index.times { current_node = current_node.next_node }
+      number_nodes.times do
+        found_nodes << current_node.data
+        current_node = current_node.next_node
+      end
+      found_nodes.join(' ')
+    end
   end
 end
