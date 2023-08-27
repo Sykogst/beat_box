@@ -102,16 +102,19 @@ class LinkedList
   end
 
     def find(start_index, number_nodes)
+      # Cannot return nodes if nothing present, or if start_index beyond end
       if @head == nil || start_index > count - 1 
         nil
       else
         found_nodes = []
         current_node = @head
+        # Iterate to get start node
         start_index.times { current_node = current_node.next_node }
         # Can only retrieve values up until the end
         if (start_index + number_nodes) > count
           # Calculate how many nodes are able to be returned, account for 0
           start_index == 0 ? (node_end = number_nodes - start_index - 1) : (node_end = number_nodes - start_index)
+          # Iterate to push nodes intro array
           node_end.times do
             found_nodes << current_node.data
             current_node = current_node.next_node
