@@ -139,4 +139,14 @@ RSpec.describe LinkedList do
       expect(@list.includes?('dep')).to be false
     end
   end
+
+  describe '#pop' do
+    it "returns node data in last element and removes node" do
+      @list.append('deep')
+      @list.append('woo')
+      @list.append('zap')
+      expect(@list.pop).to eq('zap')
+      expect(@list.to_string).to eq('deep woo')
+    end
+  end
 end
