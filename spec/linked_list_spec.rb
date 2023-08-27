@@ -97,4 +97,17 @@ RSpec.describe LinkedList do
       expect(@list.to_string).to eq('blip zap kee boop woot goot') 
     end
   end
+
+  describe '#find' do
+    it 'returns elements after given index as a string' do
+      @list.append('deep')
+      @list.append('woo')
+      @list.append('zap')
+      @list.append('kaa')
+      @list.append('bloop')
+      expect(@list.to_string).to eq('deep woo zap kaa bloop')
+      expect(@list.find(2,1)).to eq('zap')
+      expect(@list.find(1,3)).to eq('woo zap kaa')
+    end
+  end
 end
