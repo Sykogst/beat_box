@@ -107,21 +107,16 @@ class LinkedList
       else
         found_nodes = []
         current_node = @head
+        start_index.times { current_node = current_node.next_node }
         # Can only retrieve values up until the end
         if (start_index + number_nodes) > count
-          start_index.times { current_node = current_node.next_node }
           # Calculate how many nodes are able to be returned, account for 0
-          if start_index == 0
-            node_end = number_nodes - start_index - 1
-          else
-            node_end = number_nodes - start_index
-          end
+          start_index == 0 ? (node_end = number_nodes - start_index - 1) : (node_end = number_nodes - start_index)
           node_end.times do
             found_nodes << current_node.data
             current_node = current_node.next_node
           end
         else
-          start_index.times { current_node = current_node.next_node }
           number_nodes.times do
             found_nodes << current_node.data
             current_node = current_node.next_node
