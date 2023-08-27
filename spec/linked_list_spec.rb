@@ -55,20 +55,24 @@ RSpec.describe LinkedList do
       expect(@list.to_string).to eq('doop deep')
       @list.append('boop')
       expect(@list.to_string).to eq('doop deep boop')
-      # Tried different appends
-      @list.append('')
-      expect(@list.to_string).to eq('doop deep boop ')
-      @list.append('beep')
-      expect(@list.to_string).to eq('doop deep boop  beep')
-      @list.append(nil)
-      expect(@list.to_string).to eq('doop deep boop  beep ')
     end
 
+    it 'different append arguments' do
+      @list.append('boop')
+      @list.append('')
+      expect(@list.to_string).to eq('boop ')
+      @list.append('beep')
+      expect(@list.to_string).to eq('boop  beep')
+      @list.append(nil)
+      expect(@list.to_string).to eq('boop  beep ')
+    end
   end
 
-  # describe '#prepend' to
-  #   xit 'adds node to beginning of list, head is new node' do
-  #     @list.prepend()
-  #   end
-  # end
+  describe '#prepend' to
+    it 'adds node to beginning of list, head is new node' do
+      @list.append('boop')
+      @list.prepend('kee')
+      expect(@list.to_string).to eq('kee boop')
+    end
+  end
 end
