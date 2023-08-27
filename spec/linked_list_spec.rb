@@ -80,4 +80,15 @@ RSpec.describe LinkedList do
       expect(@list.count).to eq(4)
     end
   end
+
+  describe '#insert' do
+    it 'adds node at after specified location in list' do
+      @list.append('boop')
+      @list.prepend('kee')
+      @list.prepend('wop')
+      expect(@list.to_string).to eq('wop kee boop')
+      @list.insert(1, 'blip')
+      expect(@list.to_string).to eq('wop blip kee boop')
+    end
+  end
 end
