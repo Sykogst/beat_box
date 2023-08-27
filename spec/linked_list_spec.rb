@@ -29,6 +29,8 @@ RSpec.describe LinkedList do
       @list.append('doop')
       second_node = @list.append('deep')
       expect(@list.head.next_node).to eq(second_node)
+      third_node = @list.append('boop')
+      expect(@list.head.next_node.next_node).to eq(third_node)
     end
   end
 
