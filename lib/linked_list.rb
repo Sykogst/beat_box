@@ -78,25 +78,26 @@ class LinkedList
       @head =  new_node 
     # Given insert_index 0, makes it the new head
     elsif insert_index == 0
-      prepend(new_data) 
-    elsif insert_index < count && insert_index > 0
+      prepend(new_data)
+    # Inserting inbetween
+    elsif insert_index > count 
+      append(new_data)
+    else
       # Define some 'starting' positions
       before_index = insert_index - 1
       current_node = @head
       start_nodes = @head
       # Loop to the nodes before insertion point
       before_index.times { start_nodes = start_nodes.next_node }
-      # Loop to desired node to insert at by given index
+      # Loop to desired node to insert at
       insert_index.times { current_node = current_node.next_node }
-      # Nods after insertion point
+      # Nodes after insertion point
       end_nodes = start_nodes.next_node
       # Start nodes point to new node
       start_nodes.next_node = new_node
       # New Node points to end nodes
       new_node.next_node = end_nodes
     # Any given indexes larger than size of list, appends
-    else
-      append(new_data)
     end
         
   end
