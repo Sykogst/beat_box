@@ -87,8 +87,8 @@ RSpec.describe LinkedList do
       @list.prepend('kee')
       @list.prepend('wop')
       expect(@list.to_string).to eq('wop kee boop')
-      @list.insert(1, 'blip')
-      expect(@list.to_string).to eq('wop blip kee boop')
+      @list.insert(0, 'blip')
+      expect(@list.to_string).to eq('blip wop kee boop')
     end
   end
 end

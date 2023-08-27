@@ -70,4 +70,17 @@ class LinkedList
       @head = new_node
     end
   end
+
+  def insert(index_node, new_data)
+    new_node = Node.new(new_data)
+    # Adds in node if nothing exists, makes it the head
+    @head =  new_node if @head == nil
+    # Given index_node 0, makes it the new head
+    prepend(new_data) if index_node == 0
+    # loop to desired node by given index
+    
+
+
+    
+  end
 end
