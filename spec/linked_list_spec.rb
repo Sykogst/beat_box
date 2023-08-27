@@ -77,6 +77,7 @@ RSpec.describe LinkedList do
       expect(@list.to_string).to eq('wop kee boop')
       @list.prepend(' pop ')
       expect(@list.to_string).to eq(' pop  wop kee boop')
+      expect(@list.count).to eq(4)
     end
   end
 end
