@@ -27,9 +27,15 @@ class LinkedList
 
   def count
     if @head == nil
-      count = 0
+      number_node = 0
     else 
-      count = 1
+      number_node = 1
+      current_node = @head
+      while current_node.next_node != nil
+        current_node = current_node.next_node
+        number_node += 1
+      end
+      number_node
     end
   end
 
