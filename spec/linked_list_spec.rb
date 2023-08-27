@@ -51,6 +51,10 @@ RSpec.describe LinkedList do
       expect(@list.to_string).to eq('')
       @list.append('doop')
       expect(@list.to_string).to eq('doop')
+      @list.append('deep')
+      # expect(@list.to_string).to eq('doop deep')
+      @list.append('boop')
+      expect(@list.to_string).to eq('doop deep boop')
     end
   end
 end

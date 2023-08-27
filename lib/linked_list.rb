@@ -40,17 +40,17 @@ class LinkedList
   end
 
   def to_string
+    node_data = []
     if @head == nil
-      ''
+      node_data
     else
-      "#{@head.data}"+(@head.next_node ? @head.next_node.to_string : '')
+      current_node = @head
+      while current_node.next_node != nil
+        node_data << current_node.data
+        current_node = current_node.next_node
+      end
+      node_data << current_node.data
     end
-
-    # linked_list_string = ''
-    # if @head == nil
-    #   linked_list_string
-    # else
-    #   linked_list_string << @head.data
-    # end
+    node_data.join(' ')
   end
 end
