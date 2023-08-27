@@ -52,9 +52,23 @@ RSpec.describe LinkedList do
       @list.append('doop')
       expect(@list.to_string).to eq('doop')
       @list.append('deep')
-      # expect(@list.to_string).to eq('doop deep')
+      expect(@list.to_string).to eq('doop deep')
       @list.append('boop')
       expect(@list.to_string).to eq('doop deep boop')
+      # Tried different appends
+      @list.append('')
+      expect(@list.to_string).to eq('doop deep boop ')
+      @list.append('beep')
+      expect(@list.to_string).to eq('doop deep boop  beep')
+      @list.append(nil)
+      expect(@list.to_string).to eq('doop deep boop  beep ')
     end
+
   end
+
+  # describe '#prepend' to
+  #   xit 'adds node to beginning of list, head is new node' do
+  #     @list.prepend()
+  #   end
+  # end
 end
