@@ -101,6 +101,8 @@ RSpec.describe LinkedList do
   describe '#find' do
     it 'returns elements after given index as a string' do
       @list.append('deep')
+      expect(@list.to_string).to eq('deep')
+      expect(@list.find(0, 1)).to eq('deep')
       @list.append('woo')
       @list.append('zap')
       @list.append('kaa')
@@ -108,6 +110,14 @@ RSpec.describe LinkedList do
       expect(@list.to_string).to eq('deep woo zap kaa bloop')
       expect(@list.find(2,1)).to eq('zap')
       expect(@list.find(1,3)).to eq('woo zap kaa')
+    end
+
+    it 'returns nil for invalid cases: no elements, start_index beyond count' do
+      expect(@list.find(1,1)).to be_nil
+      @list.append('deep')
+      @list.append('woo')
+      @list.append('zap')
+      expect(@list.find(3,2)).to be_nil
     end
   end
 end
