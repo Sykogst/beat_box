@@ -1,5 +1,5 @@
 class BeatBox
-  attr_reader :list, :count
+  attr_reader :list
   def initialize
     @list = LinkedList.new
   end
@@ -9,12 +9,15 @@ class BeatBox
     more_data_separated.each { |node_data| @list.append(node_data) }
   end
 
-  # Kind of uncertain why this is useful?
   def count
     @list.count
   end
 
+  def to_string
+    @list.to_string
+  end
+
   def play
-    `say -r 500 -v Cellos #{@list.to_string}`
+    `say -r 500 -v Cellos #{to_string}`
   end
 end
