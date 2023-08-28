@@ -21,14 +21,12 @@ RSpec.describe LinkedList do
     end
   end
 
-  describe '' do
+  describe '#append_lots' do
     it 'append multiple at once' do
       @bb.append_lots('deep boo witt')
       expect(@bb.list.head.data).to eq ('deep')
       expect(@bb.list.head.next_node.data).to eq ('boo')
       @bb.append_lots('bonk rit goop')
-      # Pry had this as bb.count, didnt see an additonal method as useful?
-      expect(@bb.list.count).to eq(6)
       expect(@bb.list.to_string).to eq('deep boo witt bonk rit goop')
       
     end
@@ -37,5 +35,11 @@ RSpec.describe LinkedList do
       @bb.append_lots('deep    boo  witt')
       expect(@bb.list.head.data).to eq ('deep')
     end
+  end
+
+  describe '#count_bb' to
+    @bb.append_lots('deep boo witt')
+    @bb.append_lots('bonk rit goop')
+    expect(@bb.count).to eq(6)
   end
 end
