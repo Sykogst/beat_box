@@ -37,9 +37,11 @@ RSpec.describe LinkedList do
     end
   end
 
-  describe '#count_bb' to
-    @bb.append_lots('deep boo witt')
-    @bb.append_lots('bonk rit goop')
-    expect(@bb.count).to eq(6)
+  describe '#count_bb' do
+      it 'has count for bb' do
+      @bb.append_lots('deep boo witt')
+      @bb.append_lots('bonk rit goop')
+      expect(@bb.count_bb).to eq(6)
+    end
   end
 end
