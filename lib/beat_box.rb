@@ -13,11 +13,11 @@ class BeatBox
     @list.count
   end
 
-  def to_string
+  def all
     @list.to_string
   end
 
   def play
-    `say -r 500 -v Cellos #{to_string}`
+    `say -r 500 -v Cellos #{all}`
   end
 end

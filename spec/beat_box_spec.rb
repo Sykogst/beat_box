@@ -35,6 +35,10 @@ RSpec.describe LinkedList do
       @bb.append('deep    boo  witt')
       expect(@bb.list.head.data).to eq ('deep')
     end
+
+    it 'adds only valid beats' do
+
+    end
   end
 
   describe '#count' do
@@ -48,7 +52,7 @@ RSpec.describe LinkedList do
   describe '#to_string' do
     it 'has string from appended nodes' do
       @bb.append('deep boo witt bonk sit goop')
-      expect(@bb.to_string).to eq('deep boo witt bonk sit goop') 
+      expect(@bb.all).to eq('deep boo witt bonk sit goop') 
     end
   end
 
