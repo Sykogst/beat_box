@@ -50,6 +50,8 @@ RSpec.describe LinkedList do
       @bb.append('deep boo witt bonk sit goop')
       expect(@bb.count).to eq(6)
       expect(@bb.list.to_string).to eq('deep boo witt bonk sit goop')
-      expect(@bb.play).to eq(`say -r 500 -v Boing #{'deep boo witt bonk sit goop'}`)
+
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'deep boo witt bonk sit goop'`)
     end
+  end
 end
