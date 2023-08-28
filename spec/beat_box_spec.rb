@@ -45,12 +45,18 @@ RSpec.describe LinkedList do
     end
   end
 
+  describe '#to_string' do
+    it 'has string from appended nodes' do
+      @bb.append('deep boo witt bonk sit goop')
+      expect(@bb.to_string).to eq('deep boo witt bonk sit goop') 
+    end
+  end
+
   describe '#play' do
     it 'makes sound' do
       @bb.append('deep boo witt bonk sit goop')
       expect(@bb.count).to eq(6)
-      expect(@bb.list.to_string).to eq('deep boo witt bonk sit goop')
-
+      # Plays TWO sounds that are the same
       expect(@bb.play).to eq(`say -r 500 -v Cellos 'deep boo witt bonk sit goop'`)
     end
   end
