@@ -21,7 +21,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  describe '#append_lots' do
+  describe '#append' do
     it 'append multiple at once' do
       @bb.append('deep boo witt')
       expect(@bb.list.head.data).to eq ('deep')
@@ -36,8 +36,16 @@ RSpec.describe LinkedList do
       expect(@bb.list.head.data).to eq ('deep')
     end
 
-    it 'adds only valid beats' do
+    describe '#prepend' do
+      @bb.prepend('doop woop denver wenver bop dee pip dee')
+      expect(@bb.all).to eq('doop bop dee dee')
+    end
 
+    it 'adds only valid beats' do
+      @bb.append('deep bop woo')
+      expect(@bb.all).to eq('deep bop')
+      @bb.append('colorado tee tee denver bop bp')
+      expect(@bb.all).to eq('deep bop tee tee bop')
     end
   end
 
