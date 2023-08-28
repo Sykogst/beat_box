@@ -23,25 +23,35 @@ RSpec.describe LinkedList do
 
   describe '#append_lots' do
     it 'append multiple at once' do
-      @bb.append_lots('deep boo witt')
+      @bb.append('deep boo witt')
       expect(@bb.list.head.data).to eq ('deep')
       expect(@bb.list.head.next_node.data).to eq ('boo')
-      @bb.append_lots('bonk rit goop')
+      @bb.append('bonk rit goop')
       expect(@bb.list.to_string).to eq('deep boo witt bonk rit goop')
       
     end
 
     it 'append multiple with extra spacing' do
-      @bb.append_lots('deep    boo  witt')
+      @bb.append('deep    boo  witt')
       expect(@bb.list.head.data).to eq ('deep')
     end
   end
 
-  describe '#count_bb' do
+  describe '#count' do
       it 'has count for bb' do
-      @bb.append_lots('deep boo witt')
-      @bb.append_lots('bonk rit goop')
-      expect(@bb.count_bb).to eq(6)
+      @bb.append('deep boo witt')
+      @bb.append('bonk rit goop')
+      expect(@bb.count).to eq(6)
+    end
+  end
+
+  describe '#play' do
+    it 'makes sound' do
+      @bb.append('deep boo witt bonk sit goop')
+      expect(@bb.count).to eq(6)
+      expect(@bb.list.to_string).to eq('deep boo witt bonk sit goop')
+
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'deep boo witt bonk sit goop'`)
     end
   end
 end
