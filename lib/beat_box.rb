@@ -55,4 +55,12 @@ class BeatBox
   def play
     `say -r #{@rate} -v #{@voice} #{all}`
   end
+
+  def reset_voice
+    @voice = 'Cellos'
+  end
+
+  def reset_rate
+    @rate = 500
+  end
 end

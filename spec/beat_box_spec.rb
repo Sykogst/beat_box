@@ -31,17 +31,17 @@ RSpec.describe LinkedList do
     end
 
     it 'play default voice and play a different input voice' do
-      @bb.append('boop boop boop boop boop')
-      expect(@bb.play).to eq(`say -r 500 -v Cellos 'boop boop boop boop boop'`)
+      @bb.append('boop boop boop')
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'boop boop boop'`)
       @bb.voice = 'Daniel'
-      expect(@bb.play).to eq(`say -r 500 -v Daniel 'boop boop boop boop boop'`)
+      expect(@bb.play).to eq(`say -r 500 -v Daniel 'boop boop boop'`)
     end
 
     it 'play at default rate and play at different input rate' do
-      @bb.append('tee tee tee tee tee')
-      expect(@bb.play).to eq(`say -r 500 -v Cellos 'tee tee tee tee tee'`)
+      @bb.append('tee tee tee')
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'tee tee tee'`)
       @bb.rate = 100
-      expect(@bb.play).to eq(`say -r 100 -v Cellos 'tee tee tee tee tee'`)
+      expect(@bb.play).to eq(`say -r 100 -v Cellos 'tee tee tee'`)
     end
 
   end
@@ -100,8 +100,23 @@ RSpec.describe LinkedList do
     end
   end
 
-  describe '#voice' do
-
+  describe '#reset_voice' do
+    it 'will reset to default Cellos after it was changed' do
+      @bb.append('witt witt witt')
+      @bb.voice = 'Daniel'
+      expect(@bb.play).to eq(`say -r 500 -v Daniel 'witt witt witt'`)
+      @bb.reset_voice
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'witt witt witt'`)
+    end
   end
 
+  describe '#reset_rate' do
+    it 'will reset to default rate after it was changed' do
+      @bb.append('la la la')
+      @bb.rate = 100
+      expect(@bb.play).to eq(`say -r 100 -v Cellos 'la la la'`)
+      @bb.reset_rate
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'la la la'`)
+    end
+  end
 end
