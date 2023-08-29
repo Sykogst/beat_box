@@ -2,13 +2,12 @@ class BeatBox
   attr_reader :list
   def initialize
     @list = LinkedList.new
+    @beats_dictionary = 'tee dee deep bop boop la na boo witt bonk rit goop sit'
   end
 
   def append(more_data)
-    # String list of valid beats
-    beats_dictionary = 'tee dee deep bop boop la na boo witt bonk rit goop sit'
     # Both input string and beats dictionary are split into arrays
-    beats_dictionary_separated = beats_dictionary.split(' ')
+    beats_dictionary_separated = @beats_dictionary.split(' ')
     more_data_separated = more_data.split(' ')
     # Use find_all to collect all valid input node data
     valid_beats = more_data_separated.select do |node_data|
@@ -20,8 +19,7 @@ class BeatBox
   end
 
   def prepend(more_data)
-    beats_dictionary = 'tee dee deep bop boop la na boo witt bonk rit goop sit'
-    beats_dictionary_separated = beats_dictionary.split(' ')
+    beats_dictionary_separated = @beats_dictionary.split(' ')
     # Input array needs to be reversed to add from beginning
     more_data_separated = more_data.split(' ').reverse
     valid_beats = more_data_separated.select do |node_data|
