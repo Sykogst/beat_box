@@ -24,6 +24,16 @@ RSpec.describe LinkedList do
       bb_2 = BeatBox.new('dee dee denver bop')
       expect(bb_2.all).to eq('dee dee bop')
     end
+
+    it 'has default rate' do
+      @bb.append('tee tee tee deep bop')
+
+    end
+
+    it 'has default voice and rate' do
+      @bb.append('tee tee tee')
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'tee tee tee'`)
+    end
   end
 
   describe '#append' do

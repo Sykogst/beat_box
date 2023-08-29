@@ -1,9 +1,12 @@
 class BeatBox
   attr_reader :list
   def initialize(first_beats)
+    @rate = 500
+    @voice = 'Cellos'
     @beats_dictionary = 'tee dee deep bop boop la na boo witt bonk rit goop sit'
     @list = LinkedList.new
     # Was not able to call the append method from outside initialize method
+    # Probably not best, but directly coded it in the initialize method
     if first_beats == ''
       @list
     else
@@ -14,7 +17,6 @@ class BeatBox
       end
       valid_beats.each { |valid_beat| @list.append(valid_beat) }
     end
-##
   end
 
   def append(more_data)
@@ -50,6 +52,6 @@ class BeatBox
   end
 
   def play
-    `say -r 500 -v Cellos #{all}`
+    `say -r #{@rate} -v #{@voice} #{all}`
   end
 end
