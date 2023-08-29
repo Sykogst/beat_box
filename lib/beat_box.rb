@@ -1,5 +1,6 @@
 class BeatBox
   attr_reader :list
+  attr_accessor :voice, :rate
   def initialize(first_beats)
     @rate = 500
     @voice = 'Cellos'

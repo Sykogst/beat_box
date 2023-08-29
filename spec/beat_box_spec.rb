@@ -30,10 +30,20 @@ RSpec.describe LinkedList do
 
     end
 
-    it 'has default voice and rate' do
-      @bb.append('tee tee tee')
-      expect(@bb.play).to eq(`say -r 500 -v Cellos 'tee tee tee'`)
+    it 'play default voice and play a different input voice' do
+      @bb.append('boop boop boop boop boop')
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'boop boop boop boop boop'`)
+      @bb.voice = 'Daniel'
+      expect(@bb.play).to eq(`say -r 500 -v Daniel 'boop boop boop boop boop'`)
     end
+
+    it 'play at default rate and play at different input rate' do
+      @bb.append('tee tee tee tee tee')
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'tee tee tee tee tee'`)
+      @bb.rate = 100
+      expect(@bb.play).to eq(`say -r 100 -v Cellos 'tee tee tee tee tee'`)
+    end
+
   end
 
   describe '#append' do
@@ -91,6 +101,7 @@ RSpec.describe LinkedList do
   end
 
   describe '#voice' do
-    
+
   end
+
 end
