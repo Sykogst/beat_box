@@ -4,7 +4,7 @@ require './lib/node'
 
 RSpec.describe LinkedList do
   before(:each) do
-    @bb = BeatBox.new
+    @bb = BeatBox.new('')
   end
 
   describe '#initialize' do
@@ -18,6 +18,11 @@ RSpec.describe LinkedList do
 
     it 'has head' do
       expect(@bb.list.head).to be_nil
+    end
+
+    it 'can append multiple nodes with argument' do
+      bb_2 = BeatBox.new('dee dee denver bop')
+      expect(bb_2.all).to eq('dee dee bop')
     end
   end
 
@@ -73,5 +78,9 @@ RSpec.describe LinkedList do
       # Plays TWO sounds that are the same
       expect(@bb.play).to eq(`say -r 500 -v Cellos 'deep boo witt bonk sit goop'`)
     end
+  end
+
+  describe '#voice' do
+    
   end
 end
