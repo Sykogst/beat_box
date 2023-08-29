@@ -4,7 +4,7 @@ require './lib/node'
 
 RSpec.describe LinkedList do
   before(:each) do
-    @bb = BeatBox.new
+    @bb = BeatBox.new('')
   end
 
   describe '#initialize' do
@@ -19,6 +19,31 @@ RSpec.describe LinkedList do
     it 'has head' do
       expect(@bb.list.head).to be_nil
     end
+
+    it 'can append multiple nodes with argument' do
+      bb_2 = BeatBox.new('dee dee denver bop')
+      expect(bb_2.all).to eq('dee dee bop')
+    end
+
+    it 'has default rate' do
+      @bb.append('tee tee tee deep bop')
+
+    end
+
+    it 'play default voice and play a different input voice' do
+      @bb.append('boop boop boop')
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'boop boop boop'`)
+      @bb.voice = 'Daniel'
+      expect(@bb.play).to eq(`say -r 500 -v Daniel 'boop boop boop'`)
+    end
+
+    it 'play at default rate and play at different input rate' do
+      @bb.append('tee tee tee')
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'tee tee tee'`)
+      @bb.rate = 100
+      expect(@bb.play).to eq(`say -r 100 -v Cellos 'tee tee tee'`)
+    end
+
   end
 
   describe '#append' do
@@ -72,6 +97,26 @@ RSpec.describe LinkedList do
       expect(@bb.count).to eq(6)
       # Plays TWO sounds that are the same
       expect(@bb.play).to eq(`say -r 500 -v Cellos 'deep boo witt bonk sit goop'`)
+    end
+  end
+
+  describe '#reset_voice' do
+    it 'will reset to default Cellos after it was changed' do
+      @bb.append('witt witt witt')
+      @bb.voice = 'Daniel'
+      expect(@bb.play).to eq(`say -r 500 -v Daniel 'witt witt witt'`)
+      @bb.reset_voice
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'witt witt witt'`)
+    end
+  end
+
+  describe '#reset_rate' do
+    it 'will reset to default rate after it was changed' do
+      @bb.append('la la la')
+      @bb.rate = 100
+      expect(@bb.play).to eq(`say -r 100 -v Cellos 'la la la'`)
+      @bb.reset_rate
+      expect(@bb.play).to eq(`say -r 500 -v Cellos 'la la la'`)
     end
   end
 end

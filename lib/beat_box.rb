@@ -1,8 +1,23 @@
 class BeatBox
   attr_reader :list
-  def initialize
-    @list = LinkedList.new
+  attr_accessor :voice, :rate
+  def initialize(first_beats)
+    @rate = 500
+    @voice = 'Cellos'
     @beats_dictionary = 'tee dee deep bop boop la na boo witt bonk rit goop sit'
+    @list = LinkedList.new
+    # Was not able to call the append method from outside initialize method
+    # Probably not best, but directly coded it in the initialize method
+    if first_beats == ''
+      @list
+    else
+      beats_dictionary_separated = @beats_dictionary.split(' ')
+      first_beats_separated = first_beats.split(' ')
+      valid_beats = first_beats_separated.select do |node_data|
+        beats_dictionary_separated.include?(node_data)
+      end
+      valid_beats.each { |valid_beat| @list.append(valid_beat) }
+    end
   end
 
   def append(more_data)
@@ -38,6 +53,14 @@ class BeatBox
   end
 
   def play
-    `say -r 500 -v Cellos #{all}`
+    `say -r #{@rate} -v #{@voice} #{all}`
+  end
+
+  def reset_voice
+    @voice = 'Cellos'
+  end
+
+  def reset_rate
+    @rate = 500
   end
 end
