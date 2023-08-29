@@ -19,6 +19,18 @@ class BeatBox
     valid_beats.each { |valid_beat| @list.append(valid_beat) }
   end
 
+  def prepend(more_data)
+    beats_dictionary = 'tee dee deep bop boop la na boo witt bonk rit goop sit'
+    beats_dictionary_separated = beats_dictionary.split(' ')
+    # Input array needs to be reversed to add from beginning
+    more_data_separated = more_data.split(' ').reverse
+    valid_beats = more_data_separated.select do |node_data|
+      beats_dictionary_separated.include?(node_data)
+    end
+    # Prepend each beat from the valid_beats array
+    valid_beats.each { |valid_beat| @list.prepend(valid_beat) }
+  end
+
   def count
     @list.count
   end

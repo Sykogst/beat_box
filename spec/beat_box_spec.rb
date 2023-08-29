@@ -44,12 +44,12 @@ RSpec.describe LinkedList do
     end
   end
 
-  # describe '#prepend' do
-  #   it 'prepends only valid beats, multiple at once' do
-  #     @bb.prepend('doop woop denver wenver bop dee pip dee')
-  #     expect(@bb.all).to eq('doop bop dee dee')
-  #   end
-  # end
+  describe '#prepend' do
+    it 'prepends only valid beats, multiple at once' do
+      @bb.prepend('woop denver wenver bop dee pip dee')
+      expect(@bb.all).to eq('bop dee dee')
+    end
+  end
 
   describe '#count' do
       it 'has count for bb' do
